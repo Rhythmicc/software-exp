@@ -4,6 +4,7 @@
 
 - java: 11.0.10
 - Vue ^2.9
+- Maven
 
 ```shell
 chmod +x install.sh
