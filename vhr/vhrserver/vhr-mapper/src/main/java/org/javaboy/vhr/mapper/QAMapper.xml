@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.javaboy.vhr.mapper.QAMapper">
+    <resultMap id="BaseResultMap" type="org.javaboy.vhr.model.QA">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="question" property="question" jdbcType="VARCHAR" />
+        <result column="content" property="content" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id, question, content
+    </sql>
+    <select id="getAllQA" resultMap="BaseResultMap">
+        select * from QA;
+    </select>
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from QA
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteById" parameterType="java.lang.Integer" >
+        delete from QA
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="org.javaboy.vhr.model.QA" >
+        insert into QA (id, question, content)
+        values (#{id,jdbcType=INTEGER}, #{question,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR})
+    </insert>
+    <update id="updateById" parameterType="org.javaboy.vhr.model.QA" >
+        update QA
+        set question = #{question,jdbcType=VARCHAR},
+            content = #{content,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

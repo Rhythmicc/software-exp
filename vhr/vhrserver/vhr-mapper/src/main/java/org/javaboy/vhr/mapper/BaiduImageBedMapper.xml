@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.javaboy.vhr.mapper.BaiduImageBedMapper">
+    <resultMap id="BaseResultMap" type="org.javaboy.vhr.model.BaiduImageBed">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="keyword" property="keyword" jdbcType="VARCHAR" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id, name, keyword
+    </sql>
+    <select id="getAllBaiduImages" resultMap="BaseResultMap">
+        select * from baiduImageBed;
+    </select>
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+        select
+        <include refid="Base_Column_List" />
+        from baiduImageBed
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteById" parameterType="java.lang.Integer" >
+        delete from baiduImageBed
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="org.javaboy.vhr.model.BaiduImageBed" >
+        insert into baiduImageBed (id, name, keyword)
+        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR})
+    </insert>
+    <update id="updateById" parameterType="org.javaboy.vhr.model.BaiduImageBed" >
+        update baiduImageBed
+        set name = #{name,jdbcType=VARCHAR},
+            keyword = #{keyword,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
