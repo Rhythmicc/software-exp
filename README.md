@@ -11,7 +11,7 @@ chmod +x install.sh
 chmod +x backend.sh
 chmod +x frontend.sh
 
-./install bf # which means install backend & frontend
+./install.sh bf # which means install backend & frontend
 ```
 
 ## Run
@@ -20,3 +20,8 @@ chmod +x frontend.sh
 ./backend.sh  # Start up backend
 ./frontend.sh # Start up frontend
 ```
+
+## ENV
+
+- OS: Linux & Mac & ... (if you want to use Windows, you should install by yourself)
+
