@@ -59,4 +59,4 @@ drwxr-xr-x    - root 10 Mar 21:07    ├── src
 ```
 
 - You can dowmload my 3D model at: [model.gltf](https://cos.rhythmlian.cn/model.gltf), and move it to `vhr/vhrserver/vhr-web/src/main/resources/static/dae/`
-
+- 上面那个模型的URL已经失效了，请自己想其他办法下载叭；此外本repo没有做Docker部署的功能，你可以自己改改Dockerfile：把static文件夹中编译出的结果拿给Docker挂载就行。
